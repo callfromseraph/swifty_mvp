@@ -5,24 +5,17 @@
 //  Created by {{ developer.name }} on {{ date }}.
 //
 
-import EasyDi
+import Foundation
 
-final class {{ module_info.name }}ModuleAssembly: Assembly {
+final class {{ module_info.name }}ModuleAssembly: BaseAssembly {
 
-	var view: {{ module_info.name }}View {
-		return definePlaceholder()
-	}
+	private(set) var view: {{ module_info.name }}View!
 
-	var presenter: {{ module_info.name }}Presenter {
-		return define(scope: .prototype,
-               init: {{ module_info.name }}PresenterImp(view: self.view)
-        )
-	}
+	func inject(into viewController: {{ module_info.name }}ViewController) -> {{ module_info.name }}ModuleAssembly {
+		let presenter = {{ module_info.name }}PresenterImp(view: viewController)
+		viewController.presenter = presenter
 
-	func inject(into viewController: {{ module_info.name }}ViewController) {
-		defineInjection(key: "view", into: viewController) {
-            $0.presenter = self.presenter
-            return $0
-        }
+		self.view = viewController
+		return self
 	}
 }
