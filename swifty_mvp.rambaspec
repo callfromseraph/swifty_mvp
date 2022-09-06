@@ -23,4 +23,4 @@ code_files:
 test_files:
 
 # Presenter tests
-- {name: Presenter/PresenterTests.swift, path: Tests/presenter_tests.swift.liquid}
+- {name: PresenterTests.swift, path: Tests/presenter_tests.swift.liquid}
