@@ -11,7 +11,7 @@ final class {{ module_info.name }}ViewController: UIViewController {
 
     var presenter: {{ module_info.name }}Presenter!
 
-// MARK: Life cycle
+// MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +19,7 @@ final class {{ module_info.name }}ViewController: UIViewController {
     }
 }
 
-// MARK: – {{module_info.name}}View
+// MARK: - {{module_info.name}}View
 extension {{ module_info.name }}ViewController: {{ module_info.name }}View {
 	
 	func setupInitialState() {
